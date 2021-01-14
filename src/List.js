@@ -1,12 +1,20 @@
-import React from 'react';
-export class List extends React.Component {
-    render() {
-        const { title } = this.props;
-        return (
-            <div>
-                <h4>{ title }</h4>
-                <div>リストです</div>
-            </div>
-        )
-    }
+const LANGUAGES = [
+    'javaScript',
+    'C++',
+    'Ruby',
+    'Java',
+    'PHP',
+    'Go'
+];
+
+export const List = () => {
+    return(
+        <div>
+        {
+            LANGUAGES.map((lang, index) => {
+                return <div key = {index}>{lang}</div>
+            })
+        }
+    </div>        
+    )
 }
