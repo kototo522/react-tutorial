@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import { List } from "./List";
 import { Form } from "./Form";
@@ -34,7 +34,9 @@ function App ({ data }) {
 	const addLang = (lang) => {
 		setLangs([...langs,lang]);
 		setTab('list');
+
 	}
+
 
 	return(
 		<div>
