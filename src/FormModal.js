@@ -1,30 +1,34 @@
-import React from 'react';
+import React, { useContext } from 'react';
+import styled from 'styled-components';
 import { Modal } from "./components/modal";
 import { Button } from "./components/button";
-import styled from 'styled-components';
+import { ThemeContext, THEMES } from './contexts/ThemeContext';
 
 const Container = styled.div`
     width: 240px;
     border-radius: 10px;
     padding: 24px;
-    background-color: white;
+    color: ${({ theme }) => theme.color};
+    background-color: ${({ theme }) => theme.backgroundColor};
+    border: ${({ theme }) => theme === THEMES.dark ? '2px solid white' : 'none'};
 `
 
-const ButtonWrappeer = styled.div`
+const ButtonWrapper = styled.div`
     display: flex;
     justify-content: space-around;
     margin-top: 24px;
 `
 
 export const FormModal = ({ confilm, cancel }) =>{
+    const [theme] = useContext(ThemeContext);
     return (
         <Modal>
-            <Container>
+            <Container theme={theme}>
             <div>本当に作成しますか？</div>
-            <ButtonWrappeer>
+            <ButtonWrapper>
                 <Button onClick = {cancel}>Cancel</Button>
                 <Button onClick = {confilm}>OK</Button>
-            </ButtonWrappeer>
+            </ButtonWrapper>
             </Container>
         </Modal>
     )
