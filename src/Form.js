@@ -17,7 +17,7 @@ const Input = styled.input`
     padding: 4px 8px;
     border: 1px solid black;
 `
-const ButtonContainer = styled.div`
+const ButtonContainer = styled.div`   
     margin-top: 24px;
 `
 const FormButton = styled(Button)`
